@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya Water Tech LLP</title>
+  <link rel="stylesheet" href="8'FF.css">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="images/shreya water logo.png" alt="Shreya Water Tech LLP Logo">
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PRODUCT SECTION -->
+  <main>
+    <div class="product-section">8" FILTERS</div>
+    <div class="product-grid">
+      <div class="product-card" 
+        data-title="Copper Alkaline Filter" 
+        data-desc="Opaque model – enriches water with copper ions, balances pH, and protects filter media from sunlight." 
+        data-images="images/copper-1.jpg,images/copper-2.jpg">
+        <div class="product-image">
+          <img src="images/copper-1.jpg" alt="Copper Filter">
+        </div>
+        <h3>Copper Alkaline Filter</h3>
+      </div>
+
+      <div class="product-card" 
+        data-title="Copper Alkaline Filter (Semi-Transparent)" 
+        data-desc="Semi-transparent model – adds minerals & copper, maintains alkalinity, allows partial visibility of media." 
+        data-images="images/Copper-stp-1.jpg,images/Copper-stp-2.jpg">
+        <div class="product-image">
+          <img src="images/copper-stp-1.jpg" alt="Semi Transparent Filter">
+        </div>
+        <h3>Copper Alkaline Filter (Semi-Transparent)</h3>
+      </div>
+
+      <div class="product-card" 
+        data-title="Marvellous Active Copper (Transparent)" 
+        data-desc="Transparent model – clearly shows filter condition, adds copper & minerals, ensures timely replacement." 
+        data-images="images/copper-Tp-1.jpg,images/Copper-Tp-2.jpg">
+        <div class="product-image">
+          <img src="images/copper-tp-1.jpg" alt="Marvellous Active Copper">
+        </div>
+        <h3>Marvellous Active Copper (Transparent)</h3>
+      </div>
+      
+      <div class="product-card" 
+       data-title="Bioqua Alkaline Filter" 
+       data-desc="Durable. Efficient. Reliable." 
+       data-images="images/bioqua-1.jpg,images/bioqua-2.jpg">
+    <div class="product-image">
+      <img src="images/bioqua-1.jpg" alt="Bioqua">
+    </div>
+    <h3>Bioqua Alkaline Filter</h3>
+  </div>
+
+  <div class="product-card" 
+  data-title="AQUA Mineral Cartidge" 
+  data-desc="Heavy-Duty. High Performance." 
+  data-images="images/aqua-1.jpg,images/aqua-2.jpg">
+<div class="product-image">
+ <img src="images/aqua-1.jpg" alt="10 inch Filter">
+</div>
+<h3>AQUA Mineral Cartidge</h3>
+</div>
+
+
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="slider">
+        <div class="slides" id="slides"></div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  
+  <footer class="site-footer">
+    <div class="logo-footer">
+      <center><img src="images/shreya water logo.png" height="30px"></center>
+    </div>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Location</h3>
+        <p><strong>Office:</strong><br>Shop No. 1, Ganesh Rivera, opposite Pelican Paradise, Gurukul road, Nikol, Ahmedabad, 382350</p>
+        <p><strong>Factory:</strong><br>Plot 1 Prince Industrial Hub-1, Kothiya road, Kuha, Ahmedabad, 380001</p>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>Suresh Patel<br><a href="tel:+919898406504">9898406504</a></p>
+        <p>Ashok Patel<br><a href="tel:+919898228284">9898228284</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Brand</h3>
+        <p>Sea Pure</p>
+        <p>S-Pure</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+
+    document.querySelectorAll(".product-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.getAttribute("data-title");
+        const desc = card.getAttribute("data-desc");
+        const images = card.getAttribute("data-images").split(",");
+
+        openModal(title, desc, images);
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    function openModal(title, desc, images) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDesc").innerText = desc;
+
+      const slidesContainer = document.getElementById("slides");
+      slidesContainer.innerHTML = "";
+      images.forEach(img => {
+        let imageEl = document.createElement("img");
+        imageEl.src = img.trim();
+        slidesContainer.appendChild(imageEl);
+      });
+
+      currentSlide = 0;
+      updateSlide();
+
+      document.getElementById("productModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("productModal").style.display = "none";
+    }
+
+    function moveSlide(n) {
+      const slides = document.querySelectorAll("#slides img");
+      currentSlide = (currentSlide + n + slides.length) % slides.length;
+      updateSlide();
+    }
+
+    function updateSlide() {
+      document.getElementById("slides").style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    window.onclick = function(event) {
+      if (event.target === document.getElementById("productModal")) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>
