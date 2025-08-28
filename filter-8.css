@@ -1,15 +1,4 @@
-/*
-  Updated: 8'ff.css
-  Revision by Gemini
-  Focus: Creating a cohesive and professional experience, especially for the product grid and modal window.
-  Key Changes:
-  - Font: Matched the primary stylesheet with 'Inter' for consistency.
-  - Shadows & Borders: Applied soft shadows and subtle borders to cards for a clean, elevated look.
-  - Modal Window: Re-aligned modal text to match user preference while maintaining a modern, user-friendly experience with smooth animations.
-  - Alignment & Spacing: Ensured consistent grid gaps and padding for visual harmony.
-*/
 
-/* RESET + GLOBAL STYLES */
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
