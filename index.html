@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya Water Tech LLP</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+ <!-- HEADER -->
+ <header>
+  <nav>
+    <div class="logo">
+      <img src="images/shreya water logo.png" alt="Shreya Water Tech LLP Logo">
+    </div>
+
+    <div class="nav-right">
+      <!-- Hamburger -->
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+      <!-- Links -->
+      <ul id="nav-links">
+        <li><a href="#">Homes</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <div class="slideshow-container">
+    <div class="slide active">
+      <div class="slide-content">
+        <img src="images/banner1.jpg" alt="Premium RO Filters">
+        <div class="fade-overlay"></div>
+        <div class="text-section">
+          <h1>Premium RO Filters</h1>
+          <p>Engineered for high performance & durability</p>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <img src="images/banner2.jpg" alt="Industrial Water Solutions">
+        <div class="fade-overlay"></div>
+        <div class="text-section">
+          <h1>Industrial Water Solutions</h1>
+          <p>Tailored solutions to match your requirements</p>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <img src="images/banner3.jpg" alt="Custom Filter Design">
+        <div class="fade-overlay"></div>
+        <div class="text-section">
+          <h1>INDUSTRIAL SKIDS</h1>
+          <p>Reliable purification systems for every business need</p>
+
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="dots">
+      <div class="dot active" onclick="currentSlide(0)"></div>
+      <div class="dot" onclick="currentSlide(1)"></div>
+      <div class="dot" onclick="currentSlide(2)"></div>
+    </div>
+  </div>
+
+  <section class="product-section">
+    <div class="product-container">
+      <h2>  OUR PRODUCTS</h2>
+      <div class="product-grid">
+  
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/4' filters.png" alt="10' Filter Cartridge">
+          </div>
+          <div class="product-content">
+            <h3>4" Filter</h3>
+            <p>Small Size, Big Performance</p>
+           
+            <a href="#" class="product-btn">Learn More</a>
+          </div>
+        </div>
+  
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/8'filters.jpg" alt="Carbon Filter Cartridge">
+          </div>
+          <div class="product-content">
+            <h3>8" Filter</h3>
+            <p>
+              Balanced Power,Lasting Purity
+            </p>
+            <a href="filter-8.html" class="product-btn">Learn More</a>
+          </div>
+        </div>
+  
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/10'filters.png" alt="10' Filter Cartridge"></div>
+          <div class="product-content">
+            <h3>10" Filter</h3>
+            <p>
+              Heavy-Duty. High Performance.
+            </p>
+            <a href="#" class="product-btn">Learn More</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/banner3.jpg" alt="10' Filter Cartridge"></div>
+          <div class="product-content">
+            <h3>SS/MS Skids</h3>
+            <p>
+              Durable. Efficient. Reliable.
+            </p>
+            <a href="#" class="product-btn">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+<!--FOOTER SECTION --> 
+
+  
+  <footer class="site-footer">
+
+    <div class="logo-footer">
+ <center> <img src="images/shreya water logo.png" height="30px" width="auto" align-center> </center>
+  </div>
+
+    <div class="footer-container">
+        <div class="footer-column">
+        
+            <h3>Location</h3>
+            <p>
+                <strong>Office:</strong><br>
+              Shop No. 1, Ganesh Rivera,opposite Pelican Paradise,Gurukul road<br>
+                Nikol, Ahmedabad, 382350
+            </p>
+            <p>
+                <strong>Factory:</strong><br>
+                Plot 1 Prince Industrial Hub-1<br>
+                Kothiya road, Kuha, Ahmedabad, 380001
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <p>
+                Suresh Patel<br>
+                <a href="tel:+919898406504">9898406504</a>
+            </p>
+            <p>
+                Ashok Patel<br>
+                <a href="+919898228284">9898228284</a>
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="HOME.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Events</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Brand</h3>
+            <p>Sea Pure</p>
+            <p>S-Pure</p>
+        </div>
+    </div>
+  </footer>
+
+
+  
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    let slideInterval;
+
+//hamburger
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector("#nav-links");
+
+    hamburger.addEventListener("click", function () {
+      navLinks.classList.toggle("show");
+    });
+  });     
+
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      current = index;
+    }
+    showSlide(0);   
+    resetInterval();
+
+    function moveSlide(step) {
+      let newIndex = (current + step + totalSlides) % totalSlides;
+      showSlide(newIndex);
+    }
+    
+    function currentSlide(index) {
+        showSlide(index);
+    }
+    
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 3000);
+    }
+
+    document.querySelector('.prev').addEventListener('click', () => {
+        moveSlide(-1);
+        resetInterval();
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+        moveSlide(1);
+        resetInterval();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide(index);
+            resetInterval();
+        });
+    });
+
+     // continues auto-slide
+</script>
+
+</body>
+</html>
